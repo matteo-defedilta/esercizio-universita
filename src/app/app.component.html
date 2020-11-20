@@ -1,0 +1,73 @@
+﻿<nav class="c-nav row">
+  <div class="col-10 d-flex">
+    <img
+      src="https://www.unich.it/sites/default/files/logouda_bordooro_bis.png"
+      alt="logo"
+      width="45"
+      height="45"
+      class="logo-container align-self-center m-3"
+    />
+    <p class="c-nav__heading">Università degli Studi <br> "G.d'Annunzio" <br> Chieti - Pescara</p>
+  </div>
+  <div class="c-nav__subtitle align-self-center col-2">
+    <span class="c-nav__subtitle-text">Teledidattica</span>
+    <div class="c-nav__subtitle-date">2020/2021</div>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-2">
+    <ul class="c-menu flex-column">
+      <li class="c-menu__item">
+        <a
+          class="c-menu__item-link"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Home</a
+        >
+      </li>
+      <li class="c-menu__item">
+        <a
+          class="c-menu__item-link"
+          routerLink="/lesson"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Lezioni</a
+        >
+      </li>
+      <li class="c-menu__item">
+        <a
+          class="c-menu__item-link"
+          routerLink="/valuta"
+          routerLinkActive="active"
+          >Cambia Valuta</a
+        >
+      </li>
+      <li class="c-menu__item">
+        <a
+          class="c-menu__item-link"
+          routerLink="/resturant"
+          routerLinkActive="active"
+          >Trova ristoranti</a
+        >
+      </li>
+      <li class="c-menu__item">
+        <a
+          class="c-menu__item-link"
+          routerLink="/users"
+          routerLinkActive="active"
+          >Utenti</a
+        >
+      </li>
+      <li class="c-menu__item">
+        <a class="c-menu__item-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- main app container -->
+  <div class="app-container col-8" [ngClass]="{ 'bg-light': user }">
+    <alert></alert>
+    <router-outlet></router-outlet>
+  </div>
+</div>

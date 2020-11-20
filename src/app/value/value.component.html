@@ -1,0 +1,17 @@
+<div class="container">
+    <p>Cambia la tua valuta da €</p>
+    <form [formGroup]="cambiaValuta" class="search_obj">
+        <input type="text" [value]="valuta" formControlName="valuta" />
+        <button (click)="changeValue()">Invia</button>
+      </form>
+      
+      <ul>
+        <li *ngFor="let rates of ratesList | keyvalue">
+          <p>
+            {{ rates.key }}
+            {{ rates.value * cambiaValuta.value.valuta}}
+          </p>
+        </li>
+      </ul>
+          
+</div>

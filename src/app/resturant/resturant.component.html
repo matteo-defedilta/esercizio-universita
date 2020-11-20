@@ -1,0 +1,12 @@
+<div class="container">
+    <p>Cerca il tuo prodotto</p>
+
+    <form [formGroup]="ricercaProdotto" class="search_obj">
+        <input type="text" [value]= "product" formControlName= "product">
+        <button (click)= "findProduct()">Invia</button>
+    </form>
+
+    <ul>
+        <li *ngFor="let shop of availableShops"> {{ shop }}</li>
+    </ul>
+</div>

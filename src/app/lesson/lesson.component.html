@@ -1,0 +1,60 @@
+<!-- <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let lessons of studies" title="{{lessons.description}}">
+      <ng-template ngbPanelContent>
+        <div *ngFor="let lesson of lessons.lessons" >
+          <div *ngIf="lessons.lessons.length == 1; else elseBlock">
+            <div *ngFor="let course of lesson" >
+              <ul>
+                {{course.description}}
+                <li *ngFor="let specialLesson of course.lessons">
+                  {{specialLesson.description}}
+                </li>               
+              </ul>
+            </div>
+          </div>
+          <ng-template #elseBlock>
+            {{lesson.description}} 
+          </ng-template>       
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion> -->
+<ngb-accordion [closeOthers]="true" #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel
+    *ngFor="let pathOfStudies of studies"
+    title="{{ pathOfStudies.description }}"
+  >
+    <ng-template ngbPanelContent>
+      <div *ngFor="let lessons of pathOfStudies.pathOfStudies">
+        <div *ngIf="pathOfStudies.pathOfStudies.length > 1; else elseBlock">
+          <ngb-accordion [closeOthers]="true" activeIds="ngb-panel-1">
+            <ngb-panel title="{{ lessons.description }}">
+              <ng-template ngbPanelContent>
+                <ul>
+                  <li *ngFor="let course of lessons.lessons">
+                    <a href="{{course.teamsLink}}">{{course.description}}</a>
+                  </li>
+                </ul>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+          <!-- <h5>
+            {{ lessons.description }}
+          </h5>
+          <ul>
+            <li *ngFor="let course of lessons.lessons">
+              {{course.description}}
+            </li>
+          </ul> -->
+        </div>
+        <ng-template #elseBlock>
+          <ul *ngFor="let lesson of lessons.lessons">
+            <li>
+              <a href="{{lesson.teamsLink}}">{{lesson.description}}</a>
+            </li>
+          </ul>
+        </ng-template>
+      </div>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
